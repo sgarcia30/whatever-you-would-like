@@ -18,11 +18,12 @@ function submitForm() {
     		dataType: 'json',
     		contentType: 'application/json',
     		type: 'POST',
-            failure: function(error) {
+            error: function(error) {
                 console.log(error);
             },
     		success: function(response) {
-    			console.log(response.body.userId)
+    			localStorage.setItem("userId", response._id);
+                window.location = 'choices.html';
     		}
     		}
 

@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const express = require('express');
 app = express();
+const morgan = require('morgan');
+
+app.use(morgan('common'));
 
 app.use(express.static('public'));
 
-const router = require('./demoRouter');
+const {router} = require('./routerDemo');
 
-app.use('/demo', demoRouter);
+app.use('/demo', router);
 
 let server;
 
